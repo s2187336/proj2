@@ -1,0 +1,165 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=dataset-link
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="width:900px; height:500px;"></div>
+
+        
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+setTimeout(function () {
+  option = {
+    legend: {},
+    tooltip: {
+      trigger: 'axis',
+      showContent: false
+    },
+    dataset: {
+      source: [
+
+        ['product', '2015-07', '2015-08', '2015-09', '2015-10', '2015-11', '2015-12', '2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06', '2016-07', '2016-08', '2016-09', '2016-10', '2016-11', '2016-12', '2017-01', '2017-02', '2017-03', '2017-04', '2017-05', '2017-06', '2017-07', '2017-08',],
+        ['A', 85.07, 90.1, 92.14, 76.96, 58.85, 70.19, 63.71, 66.12, 74.36, 82.54, 88.42, 100.55, 108.03, 121.47, 103.71, 88.16, 78.41, 76.32, 68.15, 69.88, 75.63, 100.38, 110.59, 114.18, 120.27, 137.55],
+        ['B', 76.8, 60.58, 67.28, 89.79, 88.04, 80.73, 75.53, 71.2, 83.24, 74.66, 120.65, 107.87, 84.21, 102.97, 112.18, 100.64, 78.99, 84.26, 89.71, 81.77, 90.22, 119.43, 110.08, 134.37, 92.19, 120.43],
+        ['C', 138.62, 179.43, 115.05, 69.47, 52.93, 89.45, 58.8, 72.73, 50.93, 98.13, 77.22, 144.99, 189.04, 217.6, 178.14, 86.57, 74.27, 84.97, 52.78, 70.0, 85.56, 135.03, 114.29, 174.03, 201.82, 239.11],
+        ['D', 124.34, 154.91, 100.23, 85.83, 65.52, 75.21, 65.36, 84.89, 93.19, 101.78, 111.29, 117.73, 143.04, 158.01, 128.65, 108.73, 94.08, 110.62, 93.72, 90.85, 93.7, 123.26, 132.24, 136.29, 157.27, 175.46],
+        ['E', 140.76, 161.76, 110.57, 76.94, 60.97, 92.38, 62.56, 71.75, 79.43, 90.42, 104.8, 120.43, 158.46, 183.25, 126.56, 99.29, 71.77, 93.76, 83.18, 85.85, 94.2, 132.07, 130.12, 149.04, 187.33, 214.92],
+        ['F', 148.5, 160.44, 150.95, 126.81, 79.46, 131.05, 89.06, 112.08, 132.52, 153.29, 164.73, 171.8, 192.03, 205.1, 182.0, 149.55, 126.56, 140.88, 109.59, 130.72, 143.41, 183.71, 197.0, 195.6, 207.59, 232.77],
+        ['G', 181.69, 212.74, 148.65, 105.58, 70.81, 84.06, 77.19, 103.28, 104.96, 128.3, 140.4, 153.79, 219.01, 245.39, 179.82, 145.69, 103.86, 135.88, 102.72, 124.74, 112.69, 184.03, 183.3, 199.69, 250.51, 285.97],
+        ['H', 187.61, 228.88, 147.35, 120.75, 111.83, 127.01, 89.33, 102.91, 116.8, 134.45, 138.72, 180.01, 221.25, 281.08, 201.31, 136.98, 102.92, 119.1, 97.55, 109.15, 122.75, 175.37, 174.93, 215.21, 269.4, 307.91]
+
+
+
+
+
+      ]
+    },
+    xAxis: { type: 'category' },
+    yAxis: { gridIndex: 0 },
+    grid: { top: '55%' },
+    series: [
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'line',
+        smooth: true,
+        seriesLayoutBy: 'row',
+        emphasis: { focus: 'series' }
+      },
+      {
+        type: 'pie',
+        id: 'pie',
+        radius: '30%',
+        center: ['50%', '25%'],
+        emphasis: {
+          focus: 'self'
+        },
+        label: {
+          formatter: '{b}: {@2015} ({d}%)'
+        },
+        encode: {
+          itemName: 'product',
+          value: '2015-07',
+          tooltip: '2015-07'
+        }
+      }
+    ]
+  };
+  myChart.on('updateAxisPointer', function (event) {
+    const xAxisInfo = event.axesInfo[0];
+    if (xAxisInfo) {
+      const dimension = xAxisInfo.value + 1;
+      myChart.setOption({
+        series: {
+          id: 'pie',
+          label: {
+            formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+          },
+          encode: {
+            value: dimension,
+            tooltip: dimension
+          }
+        }
+      });
+    }
+  });
+  myChart.setOption(option);
+});
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
